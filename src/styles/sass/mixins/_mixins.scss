@@ -1,0 +1,19 @@
+@mixin btn-primary{
+    display: inline-block;
+    background-color: $primary-color;
+    border: none;
+    font-family: $fuente-josefin;
+    font-size: 18px;
+    padding: 12px 24px 8px;
+    text-transform: uppercase;
+    color: $white;
+    border: 1px solid transparent;
+    transition: all .2s ease-in-out;
+    word-break: keep-all;
+    cursor: pointer;
+    &:hover{
+        background-color: transparent;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+    }
+}

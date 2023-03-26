@@ -2,7 +2,7 @@
   position: absolute;
   width: 100%;
   background-color: $white;
-  padding: 16px 32px;
+  padding: 16px 0;
   border-bottom: 1px solid $primary-color;
   .container{
     display: flex;
@@ -48,6 +48,7 @@
     top: 0;
     left: 100%;
     transition: left 0.5s ease-in-out;
+    z-index: 100;
     ul {
       height: 100%;
       display: flex;
