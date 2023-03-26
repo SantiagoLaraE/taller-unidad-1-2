@@ -1,11 +1,14 @@
 .header {
+  position: absolute;
+  width: 100%;
   background-color: $white;
   padding: 16px 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-bottom: 1px solid $primary-color;
-
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   &__logo--white {
     display: none;
   }

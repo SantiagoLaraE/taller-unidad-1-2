@@ -35,13 +35,23 @@ a {
   text-decoration: none;
 }
 
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+
 .header {
+  position: absolute;
+  width: 100%;
   background-color: #ffffff;
   padding: 16px 32px;
+  border-bottom: 1px solid #B50938;
+}
+.header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #B50938;
 }
 .header__logo--white {
   display: none;
