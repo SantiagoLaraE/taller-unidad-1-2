@@ -35,4 +35,138 @@ a {
   text-decoration: none;
 }
 
+.header {
+  background-color: #ffffff;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #B50938;
+}
+.header__logo--white {
+  display: none;
+}
+.header__logo--color {
+  display: block;
+}
+.header__menu-toggle {
+  padding: 12px 8px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.header__menu-toggle div {
+  width: 32px;
+  height: 1px;
+  background-color: #B50938;
+  margin-bottom: 10px;
+}
+.header__menu-toggle div:nth-child(3) {
+  margin: 0;
+}
+.header__menu.opened {
+  display: block;
+  left: 0;
+}
+.header__menu.opened ul li a {
+  color: #000000;
+}
+.header__menu {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  transition: left 0.5s ease-in-out;
+}
+.header__menu ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.header__menu ul a {
+  display: inline-block;
+  padding: 8px;
+  font-size: 20px;
+  border-bottom: 1px solid transparent;
+  transition: border 0.3s ease-in-out;
+}
+.header__menu ul a:hover {
+  border-bottom: 1px solid #B50938;
+}
+.header__menu .header__menu-toggle {
+  position: absolute;
+  top: 20px;
+  right: 32px;
+}
+.header__menu .header__menu-toggle--close div:nth-child(1) {
+  transform-origin: left;
+  transform: rotate(45deg);
+  background-color: #B50938;
+}
+.header__menu .header__menu-toggle--close div:nth-child(2) {
+  transform: scale(0);
+}
+.header__menu .header__menu-toggle--close div:nth-child(3) {
+  transform-origin: left;
+  transform: rotate(-45deg);
+  background-color: #B50938;
+}
+
+.header--white {
+  background-color: transparent;
+  border-bottom: 1px solid #ffffff;
+}
+.header--white .header__logo--white {
+  display: block;
+}
+.header--white .header__logo--color {
+  display: none;
+}
+.header--white .header__menu ul a {
+  color: white;
+}
+.header--white .header__menu-toggle div {
+  background-color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .header__menu-toggle {
+    display: none;
+  }
+  .header__menu {
+    display: block;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    position: static;
+  }
+  .header__menu ul {
+    flex-direction: row;
+  }
+  .header__menu ul a {
+    font-size: 16px;
+  }
+  .header__menu .header__menu-toggle {
+    position: absolute;
+    top: 20px;
+    right: 32px;
+  }
+  .header__menu .header__menu-toggle--close div:nth-child(1) {
+    transform-origin: left;
+    transform: rotate(45deg);
+  }
+  .header__menu .header__menu-toggle--close div:nth-child(2) {
+    transform: scale(0);
+  }
+  .header__menu .header__menu-toggle--close div:nth-child(3) {
+    transform-origin: left;
+    transform: rotate(-45deg);
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
