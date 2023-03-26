@@ -1,0 +1,14 @@
+{
+  "name": "taller-unidad-1-2",
+  "version": "1.0.0",
+  "description": "Taller Unidad 1 - 2 JavaScript &amp; SASS del Curso Desarrollo Frontend - Todos A La U - U Distrital",
+  "main": "src/app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "sass": "^1.60.0"
+  }
+}
