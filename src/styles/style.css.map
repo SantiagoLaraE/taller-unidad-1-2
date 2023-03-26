@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"style.css"}
+{"version":3,"sourceRoot":"","sources":["sass/global/_global.scss","sass/vars/_vars.scss"],"names":[],"mappings":"AAAA;AAAA;AAAA;EAGE;EACA;EACA;;;AAGF;EACE,kBCNM;EDON;;;AAGF;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;EAUE,aClBe;EDmBf,OCtBM;EDuBN;;;AAGF;AAAA;EAEE;;;AAGF;EACE","file":"style.css"}
