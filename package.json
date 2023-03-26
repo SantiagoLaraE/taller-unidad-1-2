@@ -4,7 +4,8 @@
   "description": "Taller Unidad 1 - 2 JavaScript &amp; SASS del Curso Desarrollo Frontend - Todos A La U - U Distrital",
   "main": "src/app/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass:watch": "npx sass --watch ./src/styles/sass/style.scss ./src/styles/style.css"
   },
   "author": "",
   "license": "MIT",
