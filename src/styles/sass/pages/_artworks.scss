@@ -43,30 +43,36 @@
   }
 
   &__wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 16px;
+    column-count: 2;
+    column-gap: 16px;
   }
   .artwork {
+    break-inside: avoid;
     cursor: pointer;
+    padding-bottom: 16px;
     &__img {
       width: 100%;
     }
-    &__title{
-        font-size: 16px;
-        color: $black;
-        margin: 8px 0;
+    &__title {
+      font-size: 16px;
+      color: $black;
+      margin: 8px 0;
     }
-    &__artist{
-        font-size: 12px;
-        color: $gray;
+    &__artist {
+      font-size: 12px;
+      color: $gray;
     }
   }
 }
 
 @media screen and (min-width: 768px) {
-    .artworks__wrapper{
-        grid-template-columns: repeat(auto-fit, minmax(226px, 1fr));
-    }
-
+  .artworks__wrapper {
+    column-count: 3;
   }
+}
+
+@media screen and (min-width: 1280px) {
+  .artworks__wrapper {
+    column-count: 4;
+  }
+}

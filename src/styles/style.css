@@ -297,12 +297,13 @@ input, button {
   border-radius: 0;
 }
 .artworks__wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px;
+  column-count: 2;
+  column-gap: 16px;
 }
 .artworks .artwork {
+  break-inside: avoid;
   cursor: pointer;
+  padding-bottom: 16px;
 }
 .artworks .artwork__img {
   width: 100%;
@@ -319,7 +320,12 @@ input, button {
 
 @media screen and (min-width: 768px) {
   .artworks__wrapper {
-    grid-template-columns: repeat(auto-fit, minmax(226px, 1fr));
+    column-count: 3;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .artworks__wrapper {
+    column-count: 4;
   }
 }
 
