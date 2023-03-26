@@ -1,0 +1,72 @@
+.artworks {
+  padding-top: 86px;
+  &__title {
+    margin-top: 54px;
+    @include title-underline;
+    margin-bottom: 24px;
+  }
+  &__actions {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  &__btn-filter {
+    padding: 10px;
+    display: flex;
+    border: 1px solid $gray;
+    background-color: $white;
+    font-size: 16px;
+    color: $gray;
+    cursor: pointer;
+    &::before {
+      content: url("../../../src/assets/SVG/FiltrosIcon.svg");
+      margin-right: 8px;
+    }
+  }
+
+  &__search {
+    max-width: 320px;
+    width: 100%;
+    input {
+      width: 100%;
+      background-color: rgba($gray, 15%);
+      font-size: 16px;
+      padding: 10px;
+      border: none;
+      &:focus {
+        outline-color: $black;
+        border-radius: 0;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+  }
+  .artwork {
+    cursor: pointer;
+    &__img {
+      width: 100%;
+    }
+    &__title{
+        font-size: 16px;
+        color: $black;
+        margin: 8px 0;
+    }
+    &__artist{
+        font-size: 12px;
+        color: $gray;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+    .artworks__wrapper{
+        grid-template-columns: repeat(auto-fit, minmax(226px, 1fr));
+    }
+
+  }

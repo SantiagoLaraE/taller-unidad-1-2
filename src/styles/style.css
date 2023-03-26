@@ -44,6 +44,10 @@ a {
   height: 100%;
 }
 
+input, button {
+  font-family: "Josefin Sans", sans-serif;
+}
+
 .header {
   position: absolute;
   width: 100%;
@@ -245,6 +249,77 @@ a {
   }
   .home__img img {
     width: 100%;
+  }
+}
+.artworks {
+  padding-top: 86px;
+}
+.artworks__title {
+  margin-top: 54px;
+  font-size: 32px;
+  padding: 8px 16px 8px 0;
+  border-bottom: 1px solid #B50938;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+.artworks__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.artworks__btn-filter {
+  padding: 10px;
+  display: flex;
+  border: 1px solid #808080;
+  background-color: #ffffff;
+  font-size: 16px;
+  color: #808080;
+  cursor: pointer;
+}
+.artworks__btn-filter::before {
+  content: url("../../../src/assets/SVG/FiltrosIcon.svg");
+  margin-right: 8px;
+}
+.artworks__search {
+  max-width: 320px;
+  width: 100%;
+}
+.artworks__search input {
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.15);
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+}
+.artworks__search input:focus {
+  outline-color: #000000;
+  border-radius: 0;
+}
+.artworks__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+.artworks .artwork {
+  cursor: pointer;
+}
+.artworks .artwork__img {
+  width: 100%;
+}
+.artworks .artwork__title {
+  font-size: 16px;
+  color: #000000;
+  margin: 8px 0;
+}
+.artworks .artwork__artist {
+  font-size: 12px;
+  color: #808080;
+}
+
+@media screen and (min-width: 768px) {
+  .artworks__wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(226px, 1fr));
   }
 }
 

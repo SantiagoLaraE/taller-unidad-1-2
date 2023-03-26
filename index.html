@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <header class="header header--white">
+    <header class="header">
         <div class="container">
             <a href="#" class="header__logo">
                 <img class="header__logo--white" src="./src/assets/SVG/LogoARTIC_Blanco.svg"
@@ -44,7 +44,7 @@
         </div>
     </header>
     <main>
-        <section class="home">
+        <section class="home" id="home" style="display: none;">
             <div class="container">
                 <div class="home__text">
                     <img class="home__logo" src="./src/assets/SVG/LogoARTIC.svg"
@@ -62,6 +62,30 @@
                         <img src="./src/assets/PNG/HomeImgMobile.png"
                             alt="Obras de arte de El Instituto de Arte de Chicago">
                     </picture>
+                </div>
+            </div>
+        </section>
+        <section class="artworks" id="artworks">
+            <div class="container">
+                <h1 class="artworks__title">Obras de arte</h1>
+                <div class="artworks__actions">
+                    <button class="artworks__btn-filter">
+                        Filtros
+                    </button>
+
+                    <div class="artworks__search">
+                        <input type="text" placeholder="Buscar">
+                    </div>
+
+                </div>
+                <div class="artworks__wrapper">
+                    <!-- <div class="artwork">
+                        <img class="artwork__img"
+                            src="https://www.artic.edu/iiif/2/d94d0e3d-5d89-ce07-ee0f-7fa6d8def8ab/full/400,/0/default.jpg"
+                            alt="">
+                        <p class="artwork__title">Artwork Title</p>
+                        <p class="artwork__artist">Artwork artist</p>
+                    </div> -->
                 </div>
             </div>
         </section>
