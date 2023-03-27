@@ -441,6 +441,23 @@ input, button, textarea, table, select {
 .filters.opened .filters__wrapper {
   left: 0;
 }
+.filters__btn-close {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 32px;
+  right: 32px;
+  background: url(" ../../../../../src/assets/SVG/closeIcon.svg") center/contain no-repeat;
+  border: none;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.filters__btn-close:hover {
+  filter: none;
+  opacity: 1;
+}
 .filters__wrapper {
   position: relative;
   padding: 32px;

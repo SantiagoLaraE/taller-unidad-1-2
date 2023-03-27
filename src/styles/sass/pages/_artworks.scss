@@ -119,6 +119,25 @@
       left: 0;
     }
   }
+  &__btn-close {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 32px;
+    right: 32px;
+    background: url(" ../../../../../src/assets/SVG/closeIcon.svg")
+      center/contain no-repeat;
+    border: none;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      filter: none;
+      opacity: 1;
+    }
+  }
 
   &__wrapper {
     position: relative;

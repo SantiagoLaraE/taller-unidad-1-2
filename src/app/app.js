@@ -1,6 +1,7 @@
 const artworksWrapper = document.querySelector(".artworks__wrapper");
 const filtersContainer = document.querySelector(".filters");
 const btnFilters = document.querySelector(".artworks__btn-filter");
+const btnCloseFilters = document.querySelector(".filters__btn-close");
 
 const URL_API = "https://api.artic.edu/api/v1";
 const pagination = {
@@ -223,7 +224,7 @@ filters__sort.addEventListener("change", async () => {
   fetchArtworks(`${artworksFirstPage}${sortValue}`);
   closeFilters();
 });
-btnFilters.addEventListener("click", openFilters)
+btnFilters.addEventListener("click", openFilters);
 
 function openFilters() {
   filtersContainer.classList.add("opened");
@@ -231,3 +232,7 @@ function openFilters() {
 function closeFilters() {
   filtersContainer.classList.remove("opened");
 }
+
+btnCloseFilters.addEventListener("click", () => {
+  closeFilters();
+});
