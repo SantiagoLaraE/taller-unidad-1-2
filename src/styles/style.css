@@ -390,12 +390,17 @@ input, button, textarea, table {
   gap: 16px;
   margin-bottom: 16px;
 }
-.form-comments input, .form-comments textarea {
+.form-comments input,
+.form-comments textarea {
   width: 100%;
   padding: 16px;
   font-size: 16px;
   border: 1px solid #808080;
   resize: none;
+}
+.form-comments input.error,
+.form-comments textarea.error {
+  border: 1px solid #B50938;
 }
 .form-comments__info {
   font-size: 14px;
@@ -424,6 +429,31 @@ input, button, textarea, table {
   background-color: transparent;
   border: 1px solid #B50938;
   color: #B50938;
+}
+.form-comments__btn:disabled {
+  background-color: #808080;
+}
+.form-comments .field-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: #B50938;
+}
+.form-comments .field-error::before {
+  display: inline-block;
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url(" ../../../../../src/assets/SVG/errorIcon.svg") center/contain no-repeat;
+}
+.form-comments .success-message {
+  padding: 16px;
+  margin-top: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(128, 128, 128, 0.25);
+  text-align: center;
+  border-radius: 8px;
 }
 
 .comments {

@@ -100,15 +100,21 @@
                 <div class="artwork-preview__info">
 
                 </div>
-                <form class="form-comments">
+                <form class="form-comments" id="formComments">
                     <h3 class="form-comments__title">Deja un comentario</h3>
                     <br>
                     <div class="form-comments__input-group">
-                        <input type="text" placeholder="Nombre" id="name">
-                        <input type="text" placeholder="Apellido" id="name">
+                        <div class="form-comments__input">
+                            <input type="text" placeholder="Nombre" id="name" name="name" data-error="nombre">
+                        </div>
+                        <div class="form-comments__input">
+                            <input type="text" placeholder="Apellido" id="lastname" name="lastname" data-error="apellido">
+                        </div>
+
                     </div>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="¿Qué te gustó de la obra?"></textarea>
-                    <button class="form-comments__btn">Publicar</button>
+                    <textarea name="comment" id="comment" cols="30" rows="10" 
+                        placeholder="¿Qué te gustó de la obra?" data-error="comentario"></textarea>
+                    <button class="form-comments__btn" id="btnFormComments">Publicar</button>
                 </form>
                 <div class="comments">
                     <h3 class="comments__title">Comentarios</h3>
@@ -131,6 +137,8 @@
     </main>
 
     <script src="./src/app/app.js"></script>
+    <script src="./src/app/menuToggle.js"></script>
+    <script src="./src/app/validateCommentsForm.js"></script>
     <script src="./src/routes/routes.js"></script>
 </body>
 

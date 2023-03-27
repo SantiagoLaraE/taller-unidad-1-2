@@ -56,12 +56,16 @@
     gap: 16px;
     margin-bottom: 16px;
   }
-  input, textarea {
+  input,
+  textarea {
     width: 100%;
     padding: 16px;
     font-size: 16px;
     border: 1px solid $gray;
     resize: none;
+    &.error {
+      border: 1px solid $primary-color;
+    }
   }
   &__info {
     font-size: 14px;
@@ -74,6 +78,32 @@
   &__btn {
     margin-top: 16px;
     @include btn-primary;
+    &:disabled {
+      background-color: $gray;
+    }
+  }
+  .field-error {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    color: $primary-color;
+    &::before {
+      display: inline-block;
+      content: "";
+      width: 24px;
+      height: 24px;
+      background: url(" ../../../../../src/assets/SVG/errorIcon.svg")
+        center/contain no-repeat;
+    }
+  }
+  .success-message {
+    padding: 16px;
+    margin-top: 16px;
+    background-color: $white;
+    box-shadow: 0 4px 8px rgba($gray, 25%);
+    text-align: center;
+    border-radius: 8px;
   }
 }
 
@@ -103,6 +133,7 @@
     }
   }
 }
+
 @media screen and (min-width: 768px) {
   .artwork-preview__wrapper {
     display: grid;
