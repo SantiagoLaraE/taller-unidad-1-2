@@ -5,8 +5,6 @@ const btnCloseFilters = document.querySelector(".filters__btn-close");
 
 const URL_API = "https://api.artic.edu/api/v1";
 const pagination = {
-  offset: 0,
-  total_pages: 0,
   limit: 50,
 };
 const artworksFirstPage = `${URL_API}/artworks?page=1&limit=${pagination.limit}`;
@@ -236,3 +234,11 @@ function closeFilters() {
 btnCloseFilters.addEventListener("click", () => {
   closeFilters();
 });
+
+search_btn.addEventListener("click", () => {
+    if(search_input.value == ""){
+      fetchArtworks(artworksFirstPage);
+    }else{
+      fetchArtworks(`${URL_API}/artworks/search?q=${search_input.value.trim()}&page=1&limit=${pagination.limit}&fields=image_id,id,title,artist_title`);
+    }
+  });

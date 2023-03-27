@@ -336,17 +336,27 @@ input, button, textarea, table, select {
 .artworks__search {
   max-width: 320px;
   width: 100%;
+  position: relative;
 }
-.artworks__search input {
+.artworks__search__input {
   width: 100%;
   background-color: rgba(128, 128, 128, 0.15);
   font-size: 16px;
   padding: 10px;
   border: none;
 }
-.artworks__search input:focus {
+.artworks__search__input:focus {
   outline-color: #000000;
   border-radius: 0;
+}
+.artworks__search__btn {
+  position: absolute;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: url("../../src/assets/SVG/searchIcon.svg") center no-repeat;
+  cursor: pointer;
 }
 .artworks__wrapper {
   column-count: 2;
