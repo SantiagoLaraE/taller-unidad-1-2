@@ -44,7 +44,7 @@ a {
   height: 100%;
 }
 
-input, button, textarea, table {
+input, button, textarea, table, select {
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -54,7 +54,7 @@ input, button, textarea, table {
   background-color: #ffffff;
   padding: 16px 0;
   border-bottom: 1px solid #B50938;
-  z-index: 99;
+  z-index: 2;
 }
 .header .container {
   display: flex;
@@ -97,7 +97,7 @@ input, button, textarea, table {
   top: 0;
   left: 100%;
   transition: left 0.5s ease-in-out;
-  z-index: 100;
+  z-index: 3;
 }
 .header__menu ul {
   height: 100%;
@@ -195,7 +195,7 @@ input, button, textarea, table {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 200;
+  z-index: 5;
   padding: 16px;
 }
 .modal.opened {
@@ -366,41 +366,12 @@ input, button, textarea, table {
   height: 100px;
   top: 54px;
   left: 50%;
-  z-index: 50;
+  z-index: 1;
   transform: translateX(-50%);
   animation: loading 0.8s linear infinite;
 }
 .artworks__wrapper.loading .artwork {
   opacity: 0.3;
-}
-.artworks .pagination {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 16px 0 54px;
-}
-.artworks .pagination button {
-  display: inline-block;
-  border: none;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 18px;
-  padding: 12px 24px 8px;
-  text-transform: uppercase;
-  transition: all 0.2s ease-in-out;
-  word-break: keep-all;
-  cursor: pointer;
-  background-color: transparent;
-  color: #808080;
-  border: 1px solid #808080;
-}
-.artworks .pagination button:hover {
-  background-color: #808080;
-  border: 1px solid #808080;
-  color: #ffffff;
-}
-.artworks .pagination button:disabled {
-  opacity: 0.25;
-  pointer-events: none;
 }
 .artworks .artwork {
   break-inside: avoid;
@@ -418,6 +389,88 @@ input, button, textarea, table {
 .artworks .artwork__artist {
   font-size: 12px;
   color: #808080;
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0 54px;
+}
+.pagination button {
+  display: inline-block;
+  border: none;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  padding: 12px 24px 8px;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  word-break: keep-all;
+  cursor: pointer;
+  background-color: transparent;
+  color: #808080;
+  border: 1px solid #808080;
+}
+.pagination button:hover {
+  background-color: #808080;
+  border: 1px solid #808080;
+  color: #ffffff;
+}
+.pagination button:disabled {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.filters {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 4;
+  top: 0;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.filters.opened {
+  display: block;
+  opacity: 1;
+  pointer-events: initial;
+}
+.filters.opened .filters__wrapper {
+  left: 0;
+}
+.filters__wrapper {
+  position: relative;
+  padding: 32px;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  height: 100vh;
+  left: -100%;
+  transition: all 0.4s ease-in-out;
+}
+.filters__title {
+  font-size: 32px;
+  padding: 8px 16px 8px 0;
+  border-bottom: 1px solid #B50938;
+  display: inline-block;
+  margin-bottom: 32px;
+}
+.filters__subtitle {
+  font-size: 32px;
+  padding: 8px 16px 8px 0;
+  border-bottom: 1px solid #B50938;
+  display: inline-block;
+  margin-bottom: 16px;
+  display: block;
+  font-size: 16px;
+}
+.filters__sort {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
 }
 
 @keyframes loading {

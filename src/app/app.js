@@ -1,4 +1,6 @@
 const artworksWrapper = document.querySelector(".artworks__wrapper");
+const filtersContainer = document.querySelector(".filters");
+const btnFilters = document.querySelector(".artworks__btn-filter");
 
 const URL_API = "https://api.artic.edu/api/v1";
 const pagination = {
@@ -6,6 +8,7 @@ const pagination = {
   total_pages: 0,
   limit: 50,
 };
+const artworksFirstPage = `${URL_API}/artworks?page=1&limit=${pagination.limit}`;
 
 const btnCloseModal = document.querySelector(".modal__btn-close");
 
@@ -23,6 +26,7 @@ function createArtworks(artworks) {
   artworks.forEach((artwork) => {
     const div = document.createElement("div");
     div.classList.add("artwork");
+
     div.addEventListener("click", () => {
       location.hash = `obra?id=${artwork.id}`;
     });
@@ -34,6 +38,7 @@ function createArtworks(artworks) {
 
     img.addEventListener("error", () => {
       img.src = "./src/assets/JPG/ImagenNoEncontrada.jpg";
+      div.style.pointerEvents = "none";
     });
 
     const title = document.createElement("p");
@@ -208,3 +213,21 @@ function fillFormUpdateComments(comment) {
 }
 
 btnCloseModal.addEventListener("click", closeModal);
+
+filters__sort.addEventListener("change", async () => {
+  let sortValue = "";
+
+  if (filters__sort.value !== "") {
+    sortValue = `&sort_by=${filters__sort.value}`;
+  }
+  fetchArtworks(`${artworksFirstPage}${sortValue}`);
+  closeFilters();
+});
+btnFilters.addEventListener("click", openFilters)
+
+function openFilters() {
+  filtersContainer.classList.add("opened");
+}
+function closeFilters() {
+  filtersContainer.classList.remove("opened");
+}
