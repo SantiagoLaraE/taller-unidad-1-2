@@ -190,7 +190,7 @@ input, button, textarea, table {
 .home {
   height: 100vh;
   padding-top: 87px;
-  background: url("./../../../src/assets/JPG/HomeBackgroundMobile.jpg") center/cover no-repeat;
+  background: url("./../../src/assets/JPG/HomeBackgroundMobile.jpg") center/cover no-repeat;
 }
 .home .container {
   display: flex;
@@ -239,7 +239,7 @@ input, button, textarea, table {
 
 @media screen and (min-width: 768px) {
   .home {
-    background: url("./../../../src/assets/JPG/HomeBackgroundDesktop.jpg") center/cover no-repeat;
+    background: url("./../../src/assets/JPG/HomeBackgroundDesktop.jpg") center/cover no-repeat;
   }
   .home__text {
     flex: 1;
