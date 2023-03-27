@@ -1,0 +1,112 @@
+.artwork-preview {
+  &__img {
+    padding-top: 86px;
+    width: 100%;
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    &::before {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 100%;
+      height: 600px;
+      background-color: black;
+      top: 0;
+      opacity: 0.9;
+    }
+    img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__title {
+    @include title-underline;
+    margin-top: 54px;
+    margin-bottom: 32px;
+  }
+  &__description {
+    font-size: 16px;
+    line-height: 1.4;
+    color: $gray;
+    margin-bottom: 32px;
+  }
+  &__data-table {
+    border-collapse: collapse;
+    td {
+      padding: 12px;
+      border-bottom: 1px solid rgba($gray, 25%);
+    }
+  }
+}
+
+.form-comments {
+  &__title {
+    @include title-underline;
+    margin-top: 54px;
+    margin-bottom: 32px;
+  }
+  &__input-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    border: 1px solid $gray;
+    resize: none;
+  }
+  &__info {
+    font-size: 14px;
+    color: $gray;
+    margin: 16px 0;
+    a {
+      color: $primary-color;
+    }
+  }
+  &__btn {
+    margin-top: 16px;
+    @include btn-primary;
+  }
+}
+
+.comments {
+  margin-bottom: 54px;
+  &__title {
+    @include title-underline;
+    margin-top: 54px;
+    margin-bottom: 32px;
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .comment {
+    padding: 32px;
+    border-radius: 16px;
+    background-color: $white;
+    box-shadow: 0 0 16px rgba($gray, 25%);
+    &__icon {
+      color: $primary-color;
+      font-size: 80px;
+    }
+    &__text {
+      margin-top: -40px;
+      margin-bottom: 16px;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .artwork-preview__wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+  }
+}

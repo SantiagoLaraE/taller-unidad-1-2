@@ -4,6 +4,7 @@
   background-color: $white;
   padding: 16px 0;
   border-bottom: 1px solid $primary-color;
+  z-index: 99;
   .container{
     display: flex;
     justify-content: space-between;
