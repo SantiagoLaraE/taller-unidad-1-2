@@ -90,3 +90,75 @@ function createArtworkPreview(artwork) {
 
   container.appendChild(fragment);
 }
+
+function getComments(artworkId) {
+  const commentsWrapper = document.querySelector(".comments__wrapper");
+  commentsWrapper.innerHTML = "";
+  const comments = commentsService.getCommentsByArtwork(artworkId);
+  if (!comments.length) {
+    commentsWrapper.innerHTML = "<p>No hay comentarios aún</p";
+  } else {
+    createComments(artworkId, commentsWrapper, comments);
+  }
+}
+
+function createComments(artworkId, container, comments) {
+  const fragment = new DocumentFragment();
+  comments.forEach((comment) => {
+    const commentDiv = document.createElement("div");
+    commentDiv.classList.add("comment");
+
+    const commentIcon = document.createElement("span");
+    commentIcon.classList.add("comment__icon");
+    commentIcon.innerHTML = '"';
+
+    const commentText = document.createElement("p");
+    commentText.classList.add("comment__text");
+    commentText.innerHTML = comment.comment;
+
+    const commentUser = document.createElement("span");
+    commentUser.classList.add("comment__name");
+    commentUser.innerHTML = `${comment.name} ${comment.lastname}`;
+
+    const commentDate = document.createElement("span");
+    commentDate.classList.add("comment__date");
+    commentDate.innerHTML = comment.publish_date;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("comment__btn-delete");
+    deleteBtn.addEventListener("click", () => {
+      commentsService.deleteComment(comment.id);
+      getComments(artworkId);
+    });
+
+    const editBtn = document.createElement("button");
+    editBtn.classList.add("comment__btn-edit");
+    editBtn.addEventListener("click", () => {
+
+    });
+
+    commentDiv.appendChild(editBtn);
+    commentDiv.appendChild(deleteBtn);
+    commentDiv.appendChild(commentIcon);
+    commentDiv.appendChild(commentText);
+    commentDiv.appendChild(commentUser);
+    commentDiv.appendChild(commentDate);
+    fragment.appendChild(commentDiv);
+  });
+
+  container.appendChild(fragment);
+}
+
+{
+  /*
+                        <p>No hay comentarios aún</p>
+
+<div class="comment">
+<span class="comment__icon">"</span>
+<p class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+    deleniti
+    voluptatem numquam nemo sapiente eligendi ex architecto facilis quasi vero.</p>
+<span class="comment__name">Nombre apellido</span>
+<span class="comment__fecha">Fecha</span>
+</div> */
+}

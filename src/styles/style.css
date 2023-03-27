@@ -470,8 +470,10 @@ input, button, textarea, table {
 .comments__wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 .comments .comment {
+  position: relative;
   padding: 32px;
   border-radius: 16px;
   background-color: #ffffff;
@@ -482,8 +484,38 @@ input, button, textarea, table {
   font-size: 80px;
 }
 .comments .comment__text {
+  font-size: 18px;
   margin-top: -40px;
   margin-bottom: 16px;
+}
+.comments .comment__name, .comments .comment__date {
+  font-size: 14px;
+  display: block;
+  color: #808080;
+}
+.comments .comment__btn-delete, .comments .comment__btn-edit {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: none;
+  filter: grayscale(100%);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.comments .comment__btn-delete:hover, .comments .comment__btn-edit:hover {
+  filter: none;
+  opacity: 1;
+}
+.comments .comment__btn-delete {
+  bottom: 32px;
+  right: 32px;
+  background: url(" ../../../../../src/assets/SVG/deleteIcon.svg") center/contain no-repeat;
+}
+.comments .comment__btn-edit {
+  right: 32px;
+  top: 32px;
+  background: url(" ../../../../../src/assets/SVG/editIcon.svg") center/contain no-repeat;
 }
 
 @media screen and (min-width: 768px) {

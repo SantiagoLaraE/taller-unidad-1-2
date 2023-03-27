@@ -37,6 +37,7 @@ function artworkPage() {
 
   const [, id] = location.hash.split("=");
   fetchArtwork(id);
+  getComments(id);
 }
 
 function registerPage() {

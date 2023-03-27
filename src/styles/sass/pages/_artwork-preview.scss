@@ -117,8 +117,10 @@
   &__wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
   .comment {
+    position: relative;
     padding: 32px;
     border-radius: 16px;
     background-color: $white;
@@ -128,8 +130,42 @@
       font-size: 80px;
     }
     &__text {
+      font-size: 18px;
       margin-top: -40px;
       margin-bottom: 16px;
+    }
+    &__name,
+    &__date {
+      font-size: 14px;
+      display: block;
+      color: $gray;
+    }
+    &__btn-delete,
+    &__btn-edit {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: none;
+      filter: grayscale(100%);
+      opacity: 0.5;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        filter: none;
+        opacity: 1;
+      }
+    }
+    &__btn-delete {
+      bottom: 32px;
+      right: 32px;
+      background: url(" ../../../../../src/assets/SVG/deleteIcon.svg")
+        center/contain no-repeat;
+    }
+    &__btn-edit {
+      right: 32px;
+      top: 32px;
+      background: url(" ../../../../../src/assets/SVG/editIcon.svg")
+        center/contain no-repeat;
     }
   }
 }

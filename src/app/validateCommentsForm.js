@@ -31,7 +31,7 @@ function showSuccessMessage() {
     document.querySelector(".success-message").remove();
     btnFormComments.disabled = false;
     resetInputs();
-  }, 3000);
+  }, 5000);
 }
 
 function checkCommentField(event) {
@@ -53,9 +53,12 @@ function checkCommentField(event) {
       data[field] = formData.get(field);
     }
 
+    const [, idArtwork] = location.hash.split("=");
     data.publish_date = formatDate();
+    data.id_artwork = idArtwork;
 
-    console.log(data);
+    commentsService.addComment(data);
+    getComments(idArtwork);
     showSuccessMessage();
   }
 }

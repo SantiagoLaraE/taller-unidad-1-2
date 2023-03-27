@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Obras de arte | Instituto de Arte de Chicago</title>
     <meta name="description"
         content="Taller Unidad 1 - 2 JavaScript &amp; SASS del Curso Desarrollo Frontend - Todos A La U - U Distrital Puedes ver las obras de arte de El Instituto de Arte de Chicago. Filtrar artista, tipo de obra, estilos,  y también puedes dejar un comentario sobre cómo te pareció cada obra haciendo un registro previo">
+    <link rel="icon" href="./src/assets/SVG/LogoARTIC.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./src/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,26 +109,19 @@
                             <input type="text" placeholder="Nombre" id="name" name="name" data-error="nombre">
                         </div>
                         <div class="form-comments__input">
-                            <input type="text" placeholder="Apellido" id="lastname" name="lastname" data-error="apellido">
+                            <input type="text" placeholder="Apellido" id="lastname" name="lastname"
+                                data-error="apellido">
                         </div>
 
                     </div>
-                    <textarea name="comment" id="comment" cols="30" rows="10" 
-                        placeholder="¿Qué te gustó de la obra?" data-error="comentario"></textarea>
+                    <textarea name="comment" id="comment" cols="30" rows="10" placeholder="¿Qué te gustó de la obra?"
+                        data-error="comentario"></textarea>
                     <button class="form-comments__btn" id="btnFormComments">Publicar</button>
                 </form>
                 <div class="comments">
                     <h3 class="comments__title">Comentarios</h3>
-                    <p>No hay comentarios aún</p>
                     <div class="comments__wrapper">
-                        <div class="comment">
-                            <span class="comment__icon">"</span>
-                            <p class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                                deleniti
-                                voluptatem numquam nemo sapiente eligendi ex architecto facilis quasi vero.</p>
-                            <span class="comment__name">Nombre apellido</span>
-                            <span class="comment__fecha">Fecha</span>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -136,6 +130,7 @@
         <section class="register" id="register"></section>
     </main>
 
+    <script src="./src/app/Comments.js"></script>
     <script src="./src/app/app.js"></script>
     <script src="./src/app/menuToggle.js"></script>
     <script src="./src/app/validateCommentsForm.js"></script>
