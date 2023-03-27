@@ -4,25 +4,31 @@ class Comments {
     this.localStorageInitialValue = [];
   }
 
-  addComment(objectComment) {
+  addComment(newComment) {
     const localStorageComments = localStorage.getItem(this.localStorageKey);
 
     if (!localStorageComments) {
-      objectComment.id = 1;
-      localStorage.setItem(
-        this.localStorageKey,
-        JSON.stringify([objectComment])
-      );
+      newComment.id = 1;
+      localStorage.setItem(this.localStorageKey, JSON.stringify([newComment]));
     } else {
       const parsedComments = JSON.parse(localStorageComments);
       const count = parsedComments.length;
-      objectComment.id = count + 1;
-      parsedComments.push(objectComment);
+      newComment.id = count + 1;
+      parsedComments.push(newComment);
       localStorage.setItem(
         this.localStorageKey,
         JSON.stringify(parsedComments)
       );
     }
+  }
+  updateComment(updatedComment) {
+    const localStorageComments = localStorage.getItem(this.localStorageKey);
+    const commentsParsed = JSON.parse(localStorageComments);
+    const commentIndex = commentsParsed.findIndex(
+      (comment) => comment.id == updatedComment.id
+    );
+    commentsParsed[commentIndex] = updatedComment;
+    localStorage.setItem(this.localStorageKey, JSON.stringify(commentsParsed));
   }
 
   deleteComment(id) {
@@ -35,17 +41,18 @@ class Comments {
     localStorage.setItem(this.localStorageKey, JSON.stringify(commentsParsed));
   }
 
-  getCommentsByArtwork(id){
+  getCommentsByArtwork(id) {
     const localStorageComments = localStorage.getItem(this.localStorageKey);
     const commentsParsed = JSON.parse(localStorageComments);
     let commentsByArtwork = [];
-    if(commentsParsed){
-      commentsByArtwork = commentsParsed.filter(comment => comment.id_artwork == id);
+    if (commentsParsed) {
+      commentsByArtwork = commentsParsed.filter(
+        (comment) => comment.id_artwork == id
+      );
     }
 
     return commentsByArtwork;
   }
-
 }
 
 const commentsService = new Comments();

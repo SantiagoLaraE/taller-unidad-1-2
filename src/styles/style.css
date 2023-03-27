@@ -187,6 +187,53 @@ input, button, textarea, table {
     transform: rotate(-45deg);
   }
 }
+.modal {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  padding: 16px;
+}
+.modal.opened {
+  display: block;
+}
+.modal__content {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 850px;
+  padding: 0 16px 54px;
+  margin-top: 54px;
+  background-color: #ffffff;
+  height: auto;
+}
+.modal__btn-close {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 32px;
+  right: 32px;
+  background: url(" ../../../../../src/assets/SVG/closeIcon.svg") center/contain no-repeat;
+  border: none;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.modal__btn-close:hover {
+  filter: none;
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .modal__content {
+    padding: 0 32px 54px;
+  }
+}
 .home {
   height: 100vh;
   padding-top: 87px;

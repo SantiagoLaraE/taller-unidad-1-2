@@ -126,6 +126,29 @@
                 </div>
             </div>
         </section>
+        <div class="modal" id="modal">
+            <div class="modal__content">
+                <button class="modal__btn-close"></button>
+                <form class="form-comments" id="formUpdateComments">
+                    <h3 class="form-comments__title">Actualiza tu comentario</h3>
+                    <br>
+                    <div class="form-comments__input-group">
+                        <div class="form-comments__input">
+                            <input type="text" placeholder="Nombre" id="name" name="name" data-error="nombre">
+                        </div>
+                        <div class="form-comments__input">
+                            <input type="text" placeholder="Apellido" id="lastname" name="lastname"
+                                data-error="apellido">
+                        </div>
+
+                    </div>
+                    <textarea name="comment" id="comment" cols="30" rows="10" placeholder="¿Qué te gustó de la obra?"
+                        data-error="comentario"></textarea>
+                    <input type="hidden" name="id" id="id">
+                    <button class="form-comments__btn" id="btnFormComments">Actualizar</button>
+                </form>
+            </div>
+        </div>
     </main>
 
     <script src="./src/app/Comments.js"></script>

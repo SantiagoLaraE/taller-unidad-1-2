@@ -1,4 +1,6 @@
 const formCommentsFields = formComments.querySelectorAll("input, textarea");
+const formUpdateCommentsFields =
+  formUpdateComments.querySelectorAll("input, textarea");
 
 function setError(input, message) {
   input.insertAdjacentHTML(
@@ -7,46 +9,52 @@ function setError(input, message) {
   );
 }
 
-function deleteErrors() {
-  const errors = formComments.querySelectorAll(".field-error");
+function deleteErrors(form, formFields) {
+  formFields.forEach((field) => {
+    field.classList.remove("error");
+  });
+  const errors = form.querySelectorAll(".field-error");
   errors.forEach((error) => {
     error.remove();
   });
 }
 
-function resetInputs() {
-  formCommentsFields.forEach((field) => {
+function resetInputs(formFields) {
+  formFields.forEach((field) => {
     field.value = "";
   });
+
+  closeModal();
 }
 
-function showSuccessMessage() {
+function showSuccessMessage(form, formFields) {
+  const submitButton = form.querySelector("button");
+
   const p = document.createElement("p");
   p.classList.add("success-message");
   p.innerHTML = "Tu comentario se ha publicado!";
-  formComments.appendChild(p);
-  btnFormComments.disabled = true;
+  form.appendChild(p);
 
   setTimeout(() => {
     document.querySelector(".success-message").remove();
-    btnFormComments.disabled = false;
-    resetInputs();
-  }, 5000);
+  }, 3000);
+
+  resetInputs(formFields);
 }
 
-function checkCommentField(event) {
+function checkCommentField(event, form, formFields, action) {
   event.preventDefault();
-  deleteErrors();
+  deleteErrors(form, formFields);
 
-  formCommentsFields.forEach((field) => {
+  formFields.forEach((field) => {
     if (field.value === "") {
       field.classList.add("error");
       setError(field, `Ingresa un ${field.dataset.error}`);
     }
   });
 
-  if (!formComments.querySelectorAll(".field-error").length) {
-    const formData = new FormData(formComments);
+  if (!form.querySelectorAll(".field-error").length) {
+    const formData = new FormData(form);
     const data = {};
 
     for (const field of formData.keys()) {
@@ -57,22 +65,48 @@ function checkCommentField(event) {
     data.publish_date = formatDate();
     data.id_artwork = idArtwork;
 
-    commentsService.addComment(data);
+    if (action === "add") {
+      commentsService.addComment(data);
+    } else if (action === "update") {
+      commentsService.updateComment(data);
+    }
+
     getComments(idArtwork);
-    showSuccessMessage();
+    showSuccessMessage(form, formFields);
+  }
+}
+function updateInput(field) {
+  if (
+    field.nextSibling.nodeName === "SPAN" &&
+    field.nextSibling.classList.contains("field-error")
+  ) {
+    field.classList.remove("error");
+    field.nextSibling.remove();
   }
 }
 
-formComments.addEventListener("submit", checkCommentField);
+formComments.addEventListener("submit", (event) => {
+  checkCommentField(event, formComments, formCommentsFields, "add");
+});
+
+formUpdateComments.addEventListener("submit", (event) => {
+  checkCommentField(
+    event,
+    formUpdateComments,
+    formUpdateCommentsFields,
+    "update"
+  );
+});
+
 formCommentsFields.forEach((field) => {
   field.addEventListener("input", () => {
-    if (
-      field.nextSibling.nodeName === "SPAN" &&
-      field.nextSibling.classList.contains("field-error")
-    ) {
-      field.classList.remove("error");
-      field.nextSibling.remove();
-    }
+    updateInput(field);
+  });
+});
+
+formUpdateCommentsFields.forEach((field) => {
+  field.addEventListener("input", () => {
+    updateInput(field);
   });
 });
 

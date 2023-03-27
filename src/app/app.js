@@ -1,4 +1,5 @@
 const URL_API = "https://api.artic.edu/api/v1";
+const btnCloseModal = document.querySelector(".modal__btn-close");
 
 async function fetchArtworks() {
   const res = await fetch(`${URL_API}/artworks?limit=50`);
@@ -134,7 +135,8 @@ function createComments(artworkId, container, comments) {
     const editBtn = document.createElement("button");
     editBtn.classList.add("comment__btn-edit");
     editBtn.addEventListener("click", () => {
-
+      openModal();
+      fillFormUpdateComments(comment);
     });
 
     commentDiv.appendChild(editBtn);
@@ -149,3 +151,18 @@ function createComments(artworkId, container, comments) {
   container.appendChild(fragment);
 }
 
+function openModal() {
+  modal.classList.add("opened");
+}
+
+function closeModal() {
+  modal.classList.remove("opened");
+}
+function fillFormUpdateComments(comment) {
+  formUpdateComments.querySelector("input#id").value = comment.id;
+  formUpdateComments.querySelector("input#name").value = comment.name;
+  formUpdateComments.querySelector("input#lastname").value = comment.lastname;
+  formUpdateComments.querySelector("textarea#comment").value = comment.comment;
+}
+
+btnCloseModal.addEventListener("click", closeModal);
