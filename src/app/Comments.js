@@ -39,7 +39,11 @@ class Comments {
   getCommentsByArtwork(id){
     const localStorageComments = localStorage.getItem(this.localStorageKey);
     const commentsParsed = JSON.parse(localStorageComments);
-    const commentsByArtwork = commentsParsed.filter(comment => comment.id_artwork == id);
+    let commentsByArtwork = [];
+    if(!commentsParsed.length){
+      commentsByArtwork = commentsParsed.filter(comment => comment.id_artwork == id);
+    }
+
     return commentsByArtwork;
   }
 
