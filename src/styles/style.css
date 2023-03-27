@@ -561,12 +561,12 @@ input, button, textarea, table {
 .comments .comment__btn-delete {
   bottom: 32px;
   right: 32px;
-  background: url(" ../../../../../src/assets/SVG/deleteIcon.svg") center/contain no-repeat;
+  background: url("../../src/assets/SVG/deleteIcon.svg") center/contain no-repeat;
 }
 .comments .comment__btn-edit {
   right: 32px;
   top: 32px;
-  background: url(" ../../../../../src/assets/SVG/editIcon.svg") center/contain no-repeat;
+  background: url("../../src/assets/SVG/editIcon.svg") center/contain no-repeat;
 }
 
 @media screen and (min-width: 768px) {

@@ -26,7 +26,7 @@ function createArtworks(artworks) {
     img.src = `https://www.artic.edu/iiif/2/${artwork.image_id}/full/200,/0/default.jpg`;
 
     img.addEventListener("error", () => {
-      img.src = "../src/assets/JPG/ImagenNoEncontrada.jpg";
+      img.src = "./src/assets/JPG/ImagenNoEncontrada.jpg";
     });
 
     const title = document.createElement("p");
