@@ -1,20 +1,35 @@
-@mixin btn-primary {
+@mixin btn {
   display: inline-block;
-  background-color: $primary-color;
   border: none;
   font-family: $fuente-josefin;
   font-size: 18px;
   padding: 12px 24px 8px;
   text-transform: uppercase;
-  color: $white;
-  border: 1px solid transparent;
   transition: all 0.2s ease-in-out;
   word-break: keep-all;
   cursor: pointer;
+}
+
+@mixin btn-primary {
+  @include btn;
+  background-color: $primary-color;
+  color: $white;
+  border: 1px solid transparent;
   &:hover {
     background-color: transparent;
     border: 1px solid $primary-color;
     color: $primary-color;
+  }
+}
+@mixin btn--outline($color, $hover-color) {
+  @include btn;
+  background-color: transparent;
+  color: $color;
+  border: 1px solid $color;
+  &:hover {
+    background-color: $color;
+    border: 1px solid $color;
+    color: $hover-color;
   }
 }
 

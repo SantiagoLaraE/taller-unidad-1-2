@@ -1,17 +1,24 @@
+const artworksWrapper = document.querySelector(".artworks__wrapper");
+
 const URL_API = "https://api.artic.edu/api/v1";
+const pagination = {
+  offset: 0,
+  total_pages: 0,
+  limit: 50,
+};
+
 const btnCloseModal = document.querySelector(".modal__btn-close");
 
-async function fetchArtworks() {
-  const res = await fetch(`${URL_API}/artworks?limit=50`);
+async function fetchArtworks(API) {
+  window.scroll(0, 0);
+  artworksWrapper.classList.add("loading");
+  const res = await fetch(API);
   const data = await res.json();
   createArtworks(data.data);
+  createPagination(data.pagination);
 }
 
-fetchArtworks();
-
 function createArtworks(artworks) {
-  const artworksWrapper = document.querySelector(".artworks__wrapper");
-
   const fragment = new DocumentFragment();
   artworks.forEach((artwork) => {
     const div = document.createElement("div");
@@ -45,6 +52,7 @@ function createArtworks(artworks) {
   });
   artworksWrapper.innerHTML = "";
   artworksWrapper.appendChild(fragment);
+  artworksWrapper.classList.remove("loading");
 }
 
 async function fetchArtwork(id) {
@@ -151,6 +159,39 @@ function createComments(artworkId, container, comments) {
   container.appendChild(fragment);
 }
 
+function createPagination(paginationInfo) {
+  const pgDiv = document.querySelector(".artworks__pagination");
+  pgDiv.innerHTML = "";
+  const prevButton = document.createElement("button");
+  const nextButton = document.createElement("button");
+
+  prevButton.classList.add("pagination__prevBtn");
+  nextButton.classList.add("pagination__nextBtn");
+
+  prevButton.innerHTML = "Anterior";
+  nextButton.innerHTML = "Siguiente";
+
+  if (paginationInfo.prev_url) {
+    prevButton.addEventListener("click", () => {
+      fetchArtworks(paginationInfo.prev_url);
+    });
+    prevButton.disabled = false;
+  } else {
+    prevButton.disabled = true;
+  }
+
+  if (paginationInfo.next_url) {
+    nextButton.addEventListener("click", () => {
+      fetchArtworks(paginationInfo.next_url);
+    });
+    nextButton.disabled = false;
+  } else {
+    nextButton.disabled = true;
+  }
+  pgDiv.appendChild(prevButton);
+  pgDiv.appendChild(nextButton);
+}
+
 function openModal() {
   modal.classList.add("opened");
 }
@@ -158,6 +199,7 @@ function openModal() {
 function closeModal() {
   modal.classList.remove("opened");
 }
+
 function fillFormUpdateComments(comment) {
   formUpdateComments.querySelector("input#id").value = comment.id;
   formUpdateComments.querySelector("input#name").value = comment.name;

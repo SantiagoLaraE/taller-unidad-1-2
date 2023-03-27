@@ -262,17 +262,17 @@ input, button, textarea, table {
 }
 .home__btn {
   display: inline-block;
-  background-color: #B50938;
   border: none;
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   padding: 12px 24px 8px;
   text-transform: uppercase;
-  color: #ffffff;
-  border: 1px solid transparent;
   transition: all 0.2s ease-in-out;
   word-break: keep-all;
   cursor: pointer;
+  background-color: #B50938;
+  color: #ffffff;
+  border: 1px solid transparent;
 }
 .home__btn:hover {
   background-color: transparent;
@@ -351,6 +351,56 @@ input, button, textarea, table {
 .artworks__wrapper {
   column-count: 2;
   column-gap: 16px;
+  position: relative;
+}
+.artworks__wrapper.loading {
+  pointer-events: none;
+}
+.artworks__wrapper.loading::after {
+  position: absolute;
+  content: "";
+  display: block;
+  background-color: #B50938;
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  top: 54px;
+  left: 50%;
+  z-index: 50;
+  transform: translateX(-50%);
+  animation: loading 0.8s linear infinite;
+}
+.artworks__wrapper.loading .artwork {
+  opacity: 0.3;
+}
+.artworks .pagination {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0 54px;
+}
+.artworks .pagination button {
+  display: inline-block;
+  border: none;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  padding: 12px 24px 8px;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  word-break: keep-all;
+  cursor: pointer;
+  background-color: transparent;
+  color: #808080;
+  border: 1px solid #808080;
+}
+.artworks .pagination button:hover {
+  background-color: #808080;
+  border: 1px solid #808080;
+  color: #ffffff;
+}
+.artworks .pagination button:disabled {
+  opacity: 0.25;
+  pointer-events: none;
 }
 .artworks .artwork {
   break-inside: avoid;
@@ -370,6 +420,18 @@ input, button, textarea, table {
   color: #808080;
 }
 
+@keyframes loading {
+  0% {
+    transform: translateX(-50%) scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0;
+  }
+}
 @media screen and (min-width: 768px) {
   .artworks__wrapper {
     column-count: 3;
@@ -464,17 +526,17 @@ input, button, textarea, table {
 .form-comments__btn {
   margin-top: 16px;
   display: inline-block;
-  background-color: #B50938;
   border: none;
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   padding: 12px 24px 8px;
   text-transform: uppercase;
-  color: #ffffff;
-  border: 1px solid transparent;
   transition: all 0.2s ease-in-out;
   word-break: keep-all;
   cursor: pointer;
+  background-color: #B50938;
+  color: #ffffff;
+  border: 1px solid transparent;
 }
 .form-comments__btn:hover {
   background-color: transparent;

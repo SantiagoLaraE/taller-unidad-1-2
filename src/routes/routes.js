@@ -22,6 +22,7 @@ function artworksPage() {
   home.style.display = "none";
   artworks.style.display = "block";
   artworkPreview.style.display = "none";
+  fetchArtworks(`${URL_API}/artworks?page=1&limit=${pagination.limit}`);
 }
 
 function artworkPage() {
