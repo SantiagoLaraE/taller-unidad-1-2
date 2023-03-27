@@ -18,7 +18,6 @@ class Comments {
       const count = parsedComments.length;
       objectComment.id = count + 1;
       parsedComments.push(objectComment);
-      console.log(parsedComments);
       localStorage.setItem(
         this.localStorageKey,
         JSON.stringify(parsedComments)

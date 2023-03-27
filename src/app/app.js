@@ -149,16 +149,3 @@ function createComments(artworkId, container, comments) {
   container.appendChild(fragment);
 }
 
-{
-  /*
-                        <p>No hay comentarios aún</p>
-
-<div class="comment">
-<span class="comment__icon">"</span>
-<p class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-    deleniti
-    voluptatem numquam nemo sapiente eligendi ex architecto facilis quasi vero.</p>
-<span class="comment__name">Nombre apellido</span>
-<span class="comment__fecha">Fecha</span>
-</div> */
-}

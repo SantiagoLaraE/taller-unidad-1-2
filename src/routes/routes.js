@@ -7,8 +7,6 @@ function navigation() {
     ? artworksPage()
     : location.hash.startsWith("#obra")
     ? artworkPage()
-    : location.hash.startsWith("#registrate")
-    ? registerPage()
     : homePage();
 }
 
@@ -17,7 +15,6 @@ function homePage() {
   home.style.display = "block";
   artworks.style.display = "none";
   artworkPreview.style.display = "none";
-  register.style.display = "none";
 }
 
 function artworksPage() {
@@ -25,7 +22,6 @@ function artworksPage() {
   home.style.display = "none";
   artworks.style.display = "block";
   artworkPreview.style.display = "none";
-  register.style.display = "none";
 }
 
 function artworkPage() {
@@ -33,17 +29,8 @@ function artworkPage() {
   home.style.display = "none";
   artworks.style.display = "none";
   artworkPreview.style.display = "block";
-  register.style.display = "none";
 
   const [, id] = location.hash.split("=");
   fetchArtwork(id);
   getComments(id);
-}
-
-function registerPage() {
-  header.classList.remove("header--white");
-  home.style.display = "none";
-  artworks.style.display = "none";
-  artworkPreview.style.display = "none";
-  register.style.display = "block";
 }
