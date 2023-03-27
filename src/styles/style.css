@@ -283,7 +283,7 @@ input, button, textarea, table {
   cursor: pointer;
 }
 .artworks__btn-filter::before {
-  content: url("../../../src/assets/SVG/FiltrosIcon.svg");
+  content: url("../../src/assets/SVG/FiltrosIcon.svg");
   margin-right: 8px;
 }
 .artworks__search {
