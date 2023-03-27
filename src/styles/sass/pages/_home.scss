@@ -26,6 +26,10 @@
     &__btn{
         @include btn-primary;
     }
+    .author{
+        font-size: 14px;
+        margin-top: 16px;
+    }
 
 }
 
