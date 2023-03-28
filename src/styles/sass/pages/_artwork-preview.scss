@@ -93,7 +93,7 @@
       content: "";
       width: 24px;
       height: 24px;
-      background: url(" ../../../../../src/assets/SVG/errorIcon.svg")
+      background: url("./../../src/assets/SVG/errorIcon.svg")
         center/contain no-repeat;
     }
   }
@@ -158,13 +158,13 @@
     &__btn-delete {
       bottom: 32px;
       right: 32px;
-      background: url("../../src/assets/SVG/deleteIcon.svg") center/contain
+      background: url("./../../src/assets/SVG/deleteIcon.svg") center/contain
         no-repeat;
     }
     &__btn-edit {
       right: 32px;
       top: 32px;
-      background: url("../../src/assets/SVG/editIcon.svg") center/contain
+      background: url("./../../src/assets/SVG/editIcon.svg") center/contain
         no-repeat;
     }
   }

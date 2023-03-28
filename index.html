@@ -24,14 +24,14 @@
                 <img class="header__logo--color" src="./src/assets/SVG/LogoARTIC.svg"
                     alt="Logo El Instituto de Arte de Chicago">
             </a>
-            <button class="header__menu-toggle">
+            <button class="header__menu-toggle" title="open navbar">
                 <div></div>
                 <div></div>
                 <div></div>
             </button>
 
             <nav class="header__menu">
-                <button class="header__menu-toggle header__menu-toggle--close">
+                <button class="header__menu-toggle header__menu-toggle--close" title="close navbar">
                     <div></div>
                     <div></div>
                     <div></div>
@@ -68,7 +68,7 @@
 
         <sidebar class="filters">
             <div class="filters__wrapper">
-                <button class="filters__btn-close"></button>
+                <button class="filters__btn-close" title="close filters"></button>
                 <h6 class="filters__title">
                     Filtros
                 </h6>
@@ -86,13 +86,13 @@
             <div class="container">
                 <h1 class="artworks__title">Obras de arte</h1>
                 <div class="artworks__actions">
-                    <button class="artworks__btn-filter">
+                    <button class="artworks__btn-filter" title="open filters">
                         Filtros
                     </button>
 
                     <div class="artworks__search">
                         <input type="text" placeholder="Buscar" id="search_input" class="artworks__search__input">
-                        <button id="search_btn" class="artworks__search__btn"></button>
+                        <button id="search_btn" class="artworks__search__btn" title="search"></button>
                     </div>
 
                 </div>
@@ -136,7 +136,7 @@
                     </div>
                     <textarea name="comment" id="comment" cols="30" rows="10" placeholder="¿Qué te gustó de la obra?"
                         data-error="comentario"></textarea>
-                    <button class="form-comments__btn" id="btnFormComments">Publicar</button>
+                    <button class="form-comments__btn" id="btnFormComments" title="Publish comment">Publicar</button>
                 </form>
                 <div class="comments">
                     <h3 class="comments__title">Comentarios</h3>
@@ -148,7 +148,7 @@
         </section>
         <div class="modal" id="modal">
             <div class="modal__content">
-                <button class="modal__btn-close"></button>
+                <button class="modal__btn-close" title="close modal"></button>
                 <form class="form-comments" id="formUpdateComments">
                     <h3 class="form-comments__title">Actualiza tu comentario</h3>
                     <br>
@@ -165,7 +165,7 @@
                     <textarea name="comment" id="comment" cols="30" rows="10" placeholder="¿Qué te gustó de la obra?"
                         data-error="comentario"></textarea>
                     <input type="hidden" name="id" id="id">
-                    <button class="form-comments__btn" id="btnFormComments">Actualizar</button>
+                    <button class="form-comments__btn" id="btnFormComments" title="update comment">Actualizar</button>
                 </form>
             </div>
         </div>

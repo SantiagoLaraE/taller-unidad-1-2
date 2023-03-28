@@ -21,7 +21,7 @@
     color: $gray;
     cursor: pointer;
     &::before {
-      content: url("../../src/assets/SVG/FiltrosIcon.svg");
+      content: url("./../../src/assets/SVG/FiltrosIcon.svg");
       margin-right: 8px;
     }
   }
@@ -48,7 +48,7 @@
       width: 36px;
       height: 36px;
       border: none;
-      background: url("../../src/assets/SVG/searchIcon.svg") center no-repeat;
+      background: url("./../../src/assets/SVG/searchIcon.svg") center no-repeat;
       cursor: pointer;
     }
   }
@@ -136,7 +136,7 @@
     height: 24px;
     top: 32px;
     right: 32px;
-    background: url(" ../../../../../src/assets/SVG/closeIcon.svg")
+    background: url("./../../src/assets/SVG/closeIcon.svg")
       center/contain no-repeat;
     border: none;
     filter: grayscale(100%);

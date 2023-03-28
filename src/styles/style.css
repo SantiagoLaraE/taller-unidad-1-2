@@ -217,7 +217,7 @@ input, button, textarea, table, select {
   height: 24px;
   top: 32px;
   right: 32px;
-  background: url(" ../../../../../src/assets/SVG/closeIcon.svg") center/contain no-repeat;
+  background: url("./../../src/assets/SVG/closeIcon.svg") center/contain no-repeat;
   border: none;
   filter: grayscale(100%);
   opacity: 0.8;
@@ -330,7 +330,7 @@ input, button, textarea, table, select {
   cursor: pointer;
 }
 .artworks__btn-filter::before {
-  content: url("../../src/assets/SVG/FiltrosIcon.svg");
+  content: url("./../../src/assets/SVG/FiltrosIcon.svg");
   margin-right: 8px;
 }
 .artworks__search {
@@ -355,7 +355,7 @@ input, button, textarea, table, select {
   width: 36px;
   height: 36px;
   border: none;
-  background: url("../../src/assets/SVG/searchIcon.svg") center no-repeat;
+  background: url("./../../src/assets/SVG/searchIcon.svg") center no-repeat;
   cursor: pointer;
 }
 .artworks__wrapper {
@@ -457,7 +457,7 @@ input, button, textarea, table, select {
   height: 24px;
   top: 32px;
   right: 32px;
-  background: url(" ../../../../../src/assets/SVG/closeIcon.svg") center/contain no-repeat;
+  background: url("./../../src/assets/SVG/closeIcon.svg") center/contain no-repeat;
   border: none;
   filter: grayscale(100%);
   opacity: 0.8;
@@ -638,7 +638,7 @@ input, button, textarea, table, select {
   content: "";
   width: 24px;
   height: 24px;
-  background: url(" ../../../../../src/assets/SVG/errorIcon.svg") center/contain no-repeat;
+  background: url("./../../src/assets/SVG/errorIcon.svg") center/contain no-repeat;
 }
 .form-comments .success-message {
   padding: 16px;
@@ -703,12 +703,12 @@ input, button, textarea, table, select {
 .comments .comment__btn-delete {
   bottom: 32px;
   right: 32px;
-  background: url("../../src/assets/SVG/deleteIcon.svg") center/contain no-repeat;
+  background: url("./../../src/assets/SVG/deleteIcon.svg") center/contain no-repeat;
 }
 .comments .comment__btn-edit {
   right: 32px;
   top: 32px;
-  background: url("../../src/assets/SVG/editIcon.svg") center/contain no-repeat;
+  background: url("./../../src/assets/SVG/editIcon.svg") center/contain no-repeat;
 }
 
 @media screen and (min-width: 768px) {
