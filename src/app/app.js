@@ -25,6 +25,10 @@ function createArtworks(artworks) {
   artworks.forEach((artwork) => {
     const div = document.createElement("div");
     div.classList.add("artwork");
+    div.dataset.id = artwork.id;
+    div.dataset.title = artwork.title;
+    div.dataset.artist_title = artwork.artist_title;
+    div.dataset.date = artwork.date_start;
 
     div.addEventListener("click", () => {
       location.hash = `obra?id=${artwork.id}`;
@@ -219,15 +223,35 @@ function closeFilters() {
   filtersContainer.classList.remove("opened");
 }
 
+function sortArtworks(value) {
+  const artworks = document.querySelectorAll(".artwork");
+  const fragment = new DocumentFragment();
+  let newOrder = [];
+
+  if (value === "title" || value === "artist_title") {
+    newOrder = [...artworks].sort((a, b) =>
+      a.dataset[value] > b.dataset[value]
+        ? 1
+        : a.dataset[value] < b.dataset[value]
+        ? -1
+        : 0
+    );
+  } else if (value === "date" || value === "id") {
+    newOrder = [...artworks].sort(
+      (a, b) => a.dataset[value] - b.dataset[value]
+    );
+  }
+
+  newOrder.forEach((artwork) => fragment.appendChild(artwork));
+
+  artworksWrapper.innerHTML = "";
+  artworksWrapper.appendChild(fragment);
+}
+
 btnCloseModal.addEventListener("click", closeModal);
 
-filters__sort.addEventListener("change", async () => {
-  let sortValue = "";
-
-  if (filters__sort.value !== "") {
-    sortValue = `&sort_by=${filters__sort.value}`;
-  }
-  fetchArtworks(`${artworksFirstPage}${sortValue}`);
+filters__sort.addEventListener("change", () => {
+  sortArtworks(filters__sort.value);
   closeFilters();
 });
 
