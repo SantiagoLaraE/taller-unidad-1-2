@@ -7,8 +7,8 @@ const URL_API = "https://api.artic.edu/api/v1";
 const pagination = {
   limit: 50,
 };
-const artworksFirstPage = `${URL_API}/artworks?page=1&limit=${pagination.limit}`;
 
+const artworksFirstPage = `${URL_API}/artworks?page=1&limit=${pagination.limit}`;
 const btnCloseModal = document.querySelector(".modal__btn-close");
 
 async function fetchArtworks(API) {
@@ -211,6 +211,14 @@ function fillFormUpdateComments(comment) {
   formUpdateComments.querySelector("textarea#comment").value = comment.comment;
 }
 
+function openFilters() {
+  filtersContainer.classList.add("opened");
+}
+
+function closeFilters() {
+  filtersContainer.classList.remove("opened");
+}
+
 btnCloseModal.addEventListener("click", closeModal);
 
 filters__sort.addEventListener("change", async () => {
@@ -222,23 +230,21 @@ filters__sort.addEventListener("change", async () => {
   fetchArtworks(`${artworksFirstPage}${sortValue}`);
   closeFilters();
 });
-btnFilters.addEventListener("click", openFilters);
 
-function openFilters() {
-  filtersContainer.classList.add("opened");
-}
-function closeFilters() {
-  filtersContainer.classList.remove("opened");
-}
+btnFilters.addEventListener("click", openFilters);
 
 btnCloseFilters.addEventListener("click", () => {
   closeFilters();
 });
 
 search_btn.addEventListener("click", () => {
-    if(search_input.value == ""){
-      fetchArtworks(artworksFirstPage);
-    }else{
-      fetchArtworks(`${URL_API}/artworks/search?q=${search_input.value.trim()}&page=1&limit=${pagination.limit}&fields=image_id,id,title,artist_title`);
-    }
-  });
+  if (search_input.value == "") {
+    fetchArtworks(artworksFirstPage);
+  } else {
+    fetchArtworks(
+      `${URL_API}/artworks/search?q=${search_input.value.trim()}&page=1&limit=${
+        pagination.limit
+      }&fields=image_id,id,title,artist_title`
+    );
+  }
+});
